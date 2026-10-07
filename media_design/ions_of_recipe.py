@@ -147,7 +147,7 @@ def convert_reagents_to_ions(
 
 
     # Load speciation template
-    spec_template = pd.read_csv(speciation_path, header=None)
+    spec_template = pd.read_csv(speciation_path, header=None, dtype=object)
 
     header_row = spec_template.iloc[0].tolist()
     units_row = spec_template.iloc[1].tolist()

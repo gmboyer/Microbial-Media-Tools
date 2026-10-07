@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,8 +7,8 @@ name = "media-design"
 version = "1.0.0"
 description = "Provides tools for making geochemically informed microbial media."
 readme = "README.md"
-requires-python = ">=3.9"
-license = { text = "MIT" }
+requires-python = ">=3.10"
+license = "MIT"
 authors = [
     { name = "Siena Smania", email = "siena.smania@gmail.com" }
 ]
@@ -16,11 +16,11 @@ keywords = ["geochemistry", "microbiology", "media"]
 
 # Runtime dependencies
 dependencies = [
-    "numpy>=1.23,<2.0",
-    "pandas>=2.0,<2.3",
-    "scipy>=1.9,<2.0",
-    "matplotlib>=3.7,<4.0",
-    "ipython>=8,<9",
+    "numpy>=1.23",
+    "pandas>=2.1",
+    "scipy>=1.9",
+    "matplotlib>=3.7",
+    "ipython>=8",
 ]
 
 [project.optional-dependencies]
@@ -29,8 +29,16 @@ geochem = [
     "pychnosz>=1.2",
 ]
 
-dev = [
+# Needed to run the example notebooks in test/ as tests
+test = [
     "pytest",
+    "nbclient",
+    "nbformat",
+    "ipykernel",
+]
+
+dev = [
+    "media-design[geochem,test]",
     "build",
     "twine",
 ]

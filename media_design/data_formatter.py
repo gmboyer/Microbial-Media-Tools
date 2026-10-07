@@ -401,7 +401,7 @@ def format_input(
 
     from .paths import resolve_data_path
 
-    df = pd.read_csv(resolve_data_path(input_file), header=None)
+    df = pd.read_csv(resolve_data_path(input_file), header=None, dtype=object)
 
     # Drop excluded ion columns
     df = _drop_excluded_ion_columns(df, excluded_target_ions)
@@ -432,7 +432,7 @@ def format_input(
                     charge_balance_on=charge_balance_ion,
                 )
 
-                df = pd.read_csv("speciation_output.csv", header=None)
+                df = pd.read_csv("speciation_output.csv", header=None, dtype=object)
 
             finally:
                 os.chdir(cwd0)

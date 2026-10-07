@@ -84,8 +84,8 @@ def build_speciation_recipe_file(
     # Load files
 
     fmt = pd.read_csv(resolve_data_path(fmt_path, default="speciation-formatting.csv"),
-                      header=None)
-    op = pd.read_csv(resolve_data_path(op_path), header=None)
+                      header=None, dtype=object)
+    op = pd.read_csv(resolve_data_path(op_path), header=None, dtype=object)
     final = pd.read_csv(final_path)
 
 
